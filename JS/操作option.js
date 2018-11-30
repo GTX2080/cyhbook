@@ -1,11 +1,11 @@
-1.动态创建select
+//1.动态创建select
 function createSelect(){
     var mySelect = document.createElement_x("select");
     mySelect.id = "mySelect";
     document.body.appendChild(mySelect);
 }
 
-2.添加选项option
+//2.添加选项option
 function addOption(){
     //根据id查找对象，
     var obj=document.getElementByIdx_x('mySelect');
@@ -15,14 +15,14 @@ function addOption(){
     obj.options.add(new Option("text","value")); //这个兼容IE与firefox
 }
 
-3.删除所有选项option
+//3.删除所有选项option
 function removeAll(){
     var obj=document.getElementByIdx_x('mySelect');
     obj.options.length=0;
 
 }
 
-4.删除一个选项option
+//4.删除一个选项option
 function removeOne(){
     var obj=document.getElementByIdx_x('mySelect');
 
@@ -32,7 +32,7 @@ function removeOne(){
     obj.options.remove(index);
 }
 
-5.获得选项option的值
+//5.获得选项option的值
 var obj=document.getElementByIdx_x('mySelect');
 
 var index=obj.selectedIndex; //序号，取当前选中选项的序号
