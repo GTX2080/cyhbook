@@ -1,3 +1,4 @@
+```java
 第一类：请求路径参数
 1、@PathVariable
 获取路径参数。即url/{id}这种形式。
@@ -93,6 +94,7 @@ public void demo3(HttpServletRequest request) {
         }
     }
 }
+```
 ---------------------
 作者：suki_rong
 来源：CSDN

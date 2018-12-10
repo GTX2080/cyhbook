@@ -20,23 +20,25 @@
 
 ---
 ## 3.如何保证事务回滚
-    正常情况下，按照正确的编码是不会出现事务回滚失败的。下面说几点保证事务能回滚的方法
-    （1）如果采用编程式事务，一定要确保切入点表达式书写正确
-    （2）如果Service层会抛出不属于运行时异常也要能回滚，那么可以将Spring默认的回滚时的异常修改为Exception，这样就可以保证碰到什么异常都可以回滚。具体的设置方式也说下：
+正常情况下，按照正确的编码是不会出现事务回滚失败的。下面说几点保证事务能回滚的方法
+- （1）如果采用编程式事务，一定要确保切入点表达式书写正确
+- （2）如果Service层会抛出不属于运行时异常也要能回滚，那么可以将Spring默认的回滚时的异常修改为Exception，这样就可以保证碰到什么异常都可以回滚。具体的设置方式也说下：
+
 ① 声明式事务，在配置里面添加一个rollback-for，代码如下
 
  
 ```xml
  <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception"/> 
-② 注解事务，直接在注解上面指定，代码如下
 ```
  
-1
-@Transactional(rollbackFor=Exception.class)
-（3）只有非只读事务才能回滚的，只读事务是不会回滚的
-（4）如果在Service层用了try catch，在catch里面再抛出一个 RuntimeException异常，这样出了异常才会回滚
-（5）如果你不喜欢（4）的方式，你还可以直接在catch后面写一句回滚代码（TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); ）来实现回滚，这样的话，就可以在抛异常后也能return 返回值；比较适合需要拿到Service层的返回值的场景。具体的用法可以参见考下面的伪代码
 
+@Transactional(rollbackFor=Exception.class)
+
+ - （3）只有非只读事务才能回滚的，只读事务是不会回滚的
+ - （4）如果在Service层用了try catch，在catch里面再抛出一个 RuntimeException异常，这样出了异常才会回滚
+ - （5）如果你不喜欢（4）的方式，你还可以直接在catch后面写一句回滚代码（TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); ）来实现回滚，这样的话，就可以在抛异常后也能return 返回值；比较适合需要拿到Service层的返回值的场景。具体的用法可以参见考下面的伪代码
+
+② 注解事务，直接在注解上面指定，代码如下
  ```java
 @Transactional(rollbackFor = Exception.class)
 public void test() {  
