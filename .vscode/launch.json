@@ -7,17 +7,17 @@
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopOnEntry": false,
-            "mainClass": "NewDemo",
+            "mainClass": "NewDemo.java",
             "args": ""
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - NewDemo",
+            "name": "NewDemo",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopOnEntry": false,
-            "mainClass": "NewDemo",
+            "mainClass": "NewDemo.java",
             "args": ""
         }
     ]
