@@ -1,0 +1,20 @@
+1.用Microsoft Office Word打开word原件；
+
+2.把需要动态修改的内容替换成***，如果有图片，尽量选择较小的图片几十K左右，并调整好位置；
+
+3.另存为，选择保存类型Word 2003 XML 文档（*.xml）【这里说一下为什么用Microsoft Office Word打开且要保存为Word 2003XML，本人亲测，用WPS找不到Word 2003XML选项，如果保存为Word XML，会有兼容问题，避免出现导出的word文档不能用Word 2003打开的问题】，保存的文件名不要是中文；
+
+4.用Firstobject free XML editor打开文件，选择Tools下的Indent【或者按快捷键F8】格式化文件内容。左边是文档结构，右边是文档内容；
+
+5. 将文档内容中需要动态修改内容的地方，换成freemarker的标识。其实就是Map<String, Object>中key，如${landName}；
+
+6.在加入了图片占位的地方，会看到一片base64编码后的代码，把base64替换成${image}，也就是Map<String, Object>中key，值必须要处理成base64；
+
+　　代码如：<w:binData w:name="wordml://自定义.png" xml:space="preserve">${image}</w:binData>
+
+　　注意：“>${image}<”这尖括号中间不能加任何其他的诸如空格，tab，换行等符号。
+
+　　如果需要循环，则使用：<#list maps as map></#list>  maps是Map<String, Object>中key，值为数组，map为自定义；
+
+7. 标识替换完之后，模板就弄完了，另存为.ftl后缀文件即可。注意：一定不要用word打开ftl模板文件，否则xml内容会发生变化，导致前面的工作白做了。
+
