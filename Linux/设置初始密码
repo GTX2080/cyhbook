@@ -1,0 +1,15 @@
+刚安装好的linux系统没有设置root用户密码的，下边介绍如何设置root用户的密码
+
+由于ubtun系统默认是没有激活root用户的，需要我们手工进行操作，在命令行界面下，或者在终端中输入如下命令： 
+sudo passwd 或者sudo passwd root
+Password：你当前的密码 
+Enter new UNIX password：这个是root的密码 
+Retype new UNIX password：重复root的密码 
+然后会提示成功的信息。 
+
+
+切入root用户 su root
+输入刚刚设置好的密码就可以了
+新建用户的命令 
+sudo useradd lijiangwei
+sudo passwd 456

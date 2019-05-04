@@ -1,0 +1,19 @@
+token 7a57093edb959b3e15d04eaffa0af20b350cdf35
+
+按shift+alt +u  在弹出窗里输入你的token点击回车,当弹出弹窗的同时系统会自动同步一次，在用户设置空间中会出现sync的设置（请勿删除）用来之后的同步用，其中gist值是用来你再另一台电脑上来下载你的设置的方法为：打开vscode下载
+
+Setting Sync
+按alt+shift+d  在弹出窗里输入你的gist值，等待片刻设置就同步了。
+
+
+同步设置指令有以下5个：
+Sync : How To Configure：同步:如何配置。
+Sync : Download Settings：同步:下载设置
+Sync : Update / Upload Settings：同步:更新/上传设置
+Sync : Reset Extension Settings：同步:重置扩展设置
+Sync : Advanced Options：同步:高级选项
+
+作者：D丶唐吉诃德
+链接：https://www.jianshu.com/p/a08219737291
+来源：简书
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
