@@ -2,6 +2,9 @@ token 7a57093edb959b3e15d04eaffa0af20b350cdf35
 6e98bd83b9e1f025cf626ed900767075f0d3f180 
 Sync : 上传完成. GIST ID : 14fe14aed3c02098f498a9ff7006aa14 .请在其他计算机上复制并使用此ID以下载设置.
 
+47c5afc9544972020444900a7a48d5fa323119c3
+Sync : 上传完成. GIST ID : 96fdb66bf7e5f14f7ed0803869e5f847 .请在其他计算机上复制并使用此ID以下载设置.
+
 按shift+alt +u  在弹出窗里输入你的token点击回车,当弹出弹窗的同时系统会自动同步一次，在用户设置空间中会出现sync的设置（请勿删除）用来之后的同步用，其中gist值是用来你再另一台电脑上来下载你的设置的方法为：打开vscode下载
 
 Setting Sync
