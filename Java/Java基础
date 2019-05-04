@@ -1,0 +1,387 @@
+快捷键
+缩进：  tab
+向前缩进：  shift+tab
+提示代码： alt+/ 
+提示类内容： ctrl+o 
+光标换行：  shift+enter
+删除：  ctrl+D 
+复制： ctrl+alt+向下箭头
+移动：  ctrl+向上或者向下
+关闭所有文件：  右键+a
+关闭其余文件：  右键+o
+
+
+标识符
+1.名字组成 ：  字母，数字，下划线  _ ，美元符号  $         
+2.不可以：  以数字开头 
+3.见名知意 ： 见到名字就知道啥意思 
+4.驼峰命名  ：  HelloWorld 
+        类名：首字母大写，其余遵循驼峰命名    HelloWorld
+        变量名，方法名：  首字母小写，其余遵循驼峰命名   helloWorld 
+        包名：全部小写  helloworld 
+5.大小写敏感  
+6.长度无限制  
+7.不可以是java中的关键字
+
+变量声明
+
+type Name ; Name=value;
+type Name = value;
+
+
+整数类型
+byte 1字节 -128-127
+short 2字节 -32768-32767
+int 4字节 21e
+long 8字节 -2^63
+浮点型
+float 4         小数点后7-8位
+double 8         小数点后15-16位
+布尔型
+boolean true ,false
+字符型
+char Name='z'
+
+转义字符
+\n--\t--\b--\r--\\--\'--\"
+
+数据类型转换
+1.自动转换  小---》大
+2.强制转换  大----》小
+byte,short,char--->int--->long----->float----double
+在一个表达中，进行运算的时候，会全部转换为本表达式中级别最高的那个进行运算。
+
+分支控制
+if(判断体){
+	执行体
+}else if(判断体){
+	执行体
+} else{
+	执行体
+}
+--------
+switch(量){
+	case value：执行体 break；
+	default ：默认执行体
+}
+case的数值进行比较，如果相等，执行,直到遇到break停止。
+default   情况都不走的时候 走default中的代码。 default可以放在任何位置，但是要是放在上面，必须加break。
+
+循环控制
+foreach循环
+for(输出元素类型 输出元素名:遍历数组名)
+
+
+方法的重载
+方法名字要相同，形参列表不同(类型不同，个数不同，顺序不同)
+public static int add(int num1,int num2){}
+public static int add(int num1,int num2,int num3){}
+
+类与对象
+方法
+ 修饰符  返回值类型（void） 方法名（形参列表）{
+方法体；
+  //return+返回值；
+ }
+
+面向对象
+抽象 继承 封装 多态
+
+创建对象：
+Student s=new Student();
+左面：Student s  ---声明一个对象，这个对象的名字是 s 
+右面：new Student();  --- 在内存中开辟一个空间，返回一个地址，这个地址赋给了左面的s
+    new 关键字 调用一个 构造方法  
+    构造方法
+    普通方法声明的格式：
+    修饰符  返回值类型  方法名（形参列表）{方法体}
+    构造方法声明的格式：
+    修饰符  类名（参数列表）{方法体}
+    
+区别：1.没有返回值类型，没有返回值   2.方法名必须是类名。
+如果你没有显示编写构造方法，那么系统就会默认给你分配一个空的构造方法（空构造器）--就是没有参数的。   
+构造器作用： 创建对象并进行初始化的。
+构造器重载与方法重载一样
+
+this--指代当前的对象
+static 修饰的属性，叫 静态属性。
+这个属性，会在类第一次被加载的时候，加载到方法区中，被这个类所有的对象共享。
+static静态属性，先于对象存在。
+调用静态属性：（1）对象名.属性名    （2）类名.属性名---推荐
+如果没有按照推荐的方式，那么会出现黄色的警告。程序员只关注错误，不关注警告。
+static方法只能调用同static方法，其他方法需要使用对象调用
+
+super
+访问父类的方法或成员变量
+
+值传递和引用传递
+*值传递：方法调用时，实际参数将它的值传递给对应的形式参数，函数接收到的是原始值的副本，此时内存中存在两个相等的基本类型，若方法中对形参执行处理操作，并不会影响实际参数的值。
+*引用传递：方法调用时，实际参数的引用（是指地址，而不是参数的值）被传递给方法中相应的形式参数，函数接收到的是原始值的内存地址，在方法中，形参与实参的内容相同，方法中对形参的处理会影响实参的值。
+
+
+块
+静态块》构造块》构造器》普通块
+
+继承 extends
+子类对父类的扩展，子类可以重写父类的方法，也可直接使用父类的方法
+Object类 是所有类的父类，根基父类，基类
+
+内部类
+普通内部类（成员内部类） 静态内部类 局部内部类 匿名内部类
+
+权限修饰符
+private ----当前的类中
+default ----同一个包下   不写修饰符默认的
+protected ----不同包下的子类中
+public ----同一个项目
+final ----首次首次赋值之后不可在此赋值，修饰类，方法时不可被继承
+
+抽象 abstract
+1.类中有抽象方法，就会变成一个抽象类。
+2.抽象类中可以有普通方法，也可以有抽象方法。
+3.一个类继承了抽象类，必须重写全部的抽象方法。
+4.假如没有重写全部的抽象方法，子类就变成一个抽象类。
+
+接口 interface
+实现接口 implements
+
+接口中包含哪些内容：
+（1）常量  ：   public final static 
+（2）抽象方法 :public abstract
+常量必须是public static final的必须显示初始化。
+实现类（Demo）可以实现(implements)接口 ，那么就要实现里面全部的抽象方法。
+java中只有单继承，但是可以有多实现。
+接口可以继承。不可以创建对象
+
+多态三种应用形式：
+1.父类当做方法的返回值
+2.父类当做方法的形参，实际传入的是子类
+3.接口当做方法的形参,实际传入的是实现类（可以调用多个实现类的方法）
+
+异常Exception
+try{ 异常代码 }-catch{ 异常处理代码 }-finally{ 无论有无异常都执行的代码 }
+多重catch：try中出现错误，会依次跟catch中的异常类型进行匹配，只要匹配成功，就会执行后面的代码。
+finally中放入内容
+（1）关闭数据库
+（2）关闭流
+（3）关闭socket
+
+throw Exception 抛出异常，谁调用谁处理
+异常类型先写子类，再写父类。。
+
+
+数组
+
+数组的声明:引用数据类型
+int[] arr;//  int类型的数组
+int arr2[];
+
+数组的创建
+arr=new int[3];//合在一起写：  
+int[] arr=new int[3];
+在内存中开辟空间，有自己的长度，长度是3，下标（索引）从0开始，到 2=（长度-1）结束
+每个空间里面有默认的初始化的值：
+基本数据类型：
+byte 0
+short 0
+int 0
+long 0L
+float 0.0f
+double 0.0
+char \u0000----NUL
+boolean false
+引用型 null
+
+
+数组初始化的方式（给数组赋值）：
+动态初始化
+int[] arr=new int[3];
+arr[0]=12;
+arr[1]=34;
+arr[2]=89;
+
+静态初始化：将数组的声明，创建，赋值 全部合在一起。
+int[] arr2=new int[]{12,34,45,76};
+int[] arr3={12,34,45,56,56};
+
+二维数组：数组里面存数组，1维存引用
+int[][] arr=new int[3][]; 声明一个长度3的数组，里面能存放三个int类型数组。
+int[][] arr2=new int[3][4]; 声明了一个3x4的数组
+int[][] arr3={{12,23,34},{45,34,67,45},{45,56,89,66}}; 静态初始化
+声明形式也可是 int[ ] arr[ ]=.... 不推荐用
+
+数组中存放引用数据类型，存放的是该引用
+
+main方法
+1.main方法：
+---是一个特殊的方法，程序的入口
+因为他有特定的格式，虚拟机在众多的方法中可以一眼认出它，然后从这个方法开始执行程序。
+
+2.固定的格式：
+public  : 一般方法都用public修饰  权限修饰符
+static ：静态的  ，先于对象存在的
+void ：方法返回值是空 ，没有返回值
+main ：方法名 --约定起这个名字
+(String[] strs){}  ---String类型的数组
+
+3.程序中还可以有其它的方法叫main吗？可以
+
+4. (String[] strs){}  ---String类型的数组
+参数是虚拟机在调用main方法的时候要传入的东西。
+
+5.想在调用main方法的时候传入参数：
+右键----run as----run configurations ----arguments
+
+
+可变参数
+--形参
+格式：int...arr
+时间：从JDK1.5之后才有的。
+原理：内部按照数组进行处理。
+实参：0,1,2,...n,或者数组
+作用：解决了方法重载的问题
+特点：适用于参数个数不确定，类型确定的情况，java把可变参数当做数组处理。可变参数必须位于最后一项
+
+
+
+包装类
+基本数据类型 包装类         继承
+byte Byte Number---Object
+short Shortint 
+int Integer
+long Long
+float Float
+double Double
+char Charactor       Object
+boolean   Boolean
+
+
+常用类
+String---内部存储的是一个char[ ]数组，不可变字符序列
+StringBuilder---可变字符序列，可以改变长度。
+Date
+//常用方法：
+long time=d.getTime();
+System.out.println(time);//1502763046844--返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。 
+long time2=System.currentTimeMillis();// public static native long currentTimeMillis();
+System.out.println(time2);//1502763099046 
+//推荐用：第二种---简单
+
+//java.util.Date 和 java.sql.Date  区别和联系：
+//区别：  java.util.Date ---年月日 时分秒    java.sql.Date---年月日
+//联系： java.sql.Date extends java.util.Date
+java.sql.Date d2=new java.sql.Date(1502763099046L);(d2);//2017-08-15
+//java.sql.Date常用方法：String--->Date
+Date d3=java.sql.Date.valueOf("2018-8-8");
+//java.util.Date 和 java.sql.Date 相互转化：
+//java.sql.Date ----->java.util.Date:
+Date d4=d2;(d4);//2017-08-15
+//java.util.Date----->java.sql.Date 
+java.sql.Date d5=new java.sql.Date(new Date().getTime());(d5);//2017-08-15
+
+
+枚举类public enum Gender{男,女;}
+Math
+//开平方
+Math.sqrt(4);
+//绝对值
+Math.abs(-9);
+//向上取值
+Math.ceil(90.00001);//91.0
+Math.ceil(-90.99999);//-90.0
+//向下取值
+Math.floor(90.999999);//90.0
+Math.floor(-90.0000001);//-91.0
+//四舍五入
+Math.round(3.14);//3
+Math.round(3.84);//4
+//次幂
+Math.pow(9.0, 2);//81.0
+Math.pow(3.0, 3);//27.0
+//比较两个数的哪个大
+Math.max(3.8, 8.9);//8.9
+//比较两个数的哪个小
+        Math.min(3.8, 8.9);//3.8
+//random随机数0-1
+
+
+集合
+Collection
+
+ * Collection：接口，不能创建对象
+ * 增加：add(E e)---addAll(Collection<? extends E> c) 
+ * 删除：clear()---remove(Object o)---removeAll(Collection<?> c)---retainAll(Collection<?> c) 
+ * 修改：
+ * 查看：iterator()---size() 
+ * 判断：contains(Object o)---containsAll(Collection<?> c)---isEmpty() 
+
+
+
+List---有序可重复，存储顺序和取出顺序一致
+ArrayList 底层数组，线程不安全。有序，不唯一
+LinkedList 底层链表，线程不安全。
+Vector 底层数组，线程安全。
+于ArrayList，它在集合的末尾删除或添加元素所用的时间是一致的，但是在列表中间的部分添加或删除时所用时间就会大大增加，每次插入操作，都会进行一次数组复制。但是它在根据索引查找元素的时候速度很快。
+
+对于LinkedList则相反，它在插入、删除集合中任何位置的元素所花费的时间都是一样的，但是它根据索引查询一个元素的时候却比较慢。
+
+ * List：接口，不能创建对象
+ * 增加：add(int index, E element) 
+ * 删除：remove(int index) 
+ * 修改：set(int index, E element) 
+ * 查看：get(int index)---indexOf(Object o) ---返回此列表中第一次出现的指定元素的索引
+ * 判断：
+
+LinkedList
+ * 增加：addFirst(E e) addLast(E e) 
+ *           offer(E e) 
+ *           offerFirst(E e)---offerLast(E e) 
+ * 删除：poll() 
+ *      pollFirst()---pollLast() ----JDK1.6之后优化的方法，集合是空的 删除不报错。
+ *      removeFirst()---removeLast() 
+ * 修改：
+ * 查看：element() ---获取但不移除此列表的头（第一个元素）。
+ *           getFirst()---getLast() 
+ *           peekFirst()---peekLast() 
+ * 判断：
+
+
+//遍历器：
+
+Iterator<Integer> it = ll.iterator();
+while(it.hasNext()){
+System.out.print(it.next()+"\t");
+}
+
+//在源码中经常使用。
+//缺点：可读性差
+//优点：节省空间
+for(Iterator<Integer> it1 = ll.iterator();it1.hasNext();){
+	System.out.print(it1.next()+"\t");
+}
+
+Set---元素不可重复
+HashSet 底层哈希表，无序，唯一。
+TreeSet 底层红黑树，有序，唯一，不按照输入顺序输出
+LinkedHashSet 底层哈希表和链表。
+
+
+Map
+HashMap  key--无序，唯一  ---哈希表 线程不安全
+LInkedHashMap  key--有序，唯一，速度快，结构复杂  ---哈希表+链表
+Hashtable   ---哈希表 线程安全
+TreeMap key--有序（升序),唯一  ---二叉树
+
+* Map<Integer,String>
+* Integer---key -----键
+* String---value -----值
+* 键值对
+* 常用方法：
+* 增加：put(K key, V value) 
+* 删除：remove(Object key) 
+* 修改：
+* 查看：entrySet()  get(Object key) keySet()  values() 
+* 判断：containsKey(Object key) containsValue(Object value) 
+
+Collection是集合接口
+Conllections是集合的包装类

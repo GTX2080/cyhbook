@@ -1,0 +1,14 @@
+---分页查询
+
+select rownum,s.* from (select /*rownum,*/e.* from emp e order by sal) s
+
+3.查看第二页 ：  6-10  
+
+select a.* from 
+(
+select rownum rr,s.*  
+from   
+(select e.* from emp e order by sal) s
+where rownum<=10
+)  a
+where rr>5

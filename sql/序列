@@ -1,0 +1,23 @@
+--序列
+create sequence seq_class;
+作用：类似 于  java中的计数器 ：
+
+关联序列到表
+select seq_class.nextval from dual; 增加
+select seq_class.currval from dual;  减少
+
+insert into classes values (seq_class.nextval,'java10');
+
+删除序列：
+drop sequence seq_class
+
+比如表中已经有数据了 ，1,2,3,4.。10  
+现在新添加一个序列 ，利用他 ：
+create sequence seq_class start with 40 ;
+insert into classes values (seq_class.nextval,'java10');
+
+create sequence seq_class ---创建序列
+start with 20   ---从20开始
+increment by 2  ---步长 是  2  
+maxvalue 2000  ----最大到2000 
+cache 10 ;   ---缓存10 一次性给你缓存十个数出来 

@@ -1,0 +1,11 @@
+insert ---插入
+
+insert into emp(name,name) values (value,value)
+---如果是全部字段，那么values之前的字段可以省略不写
+insert into dept values (60,'ios','hunan');
+----创建一张表：当做表的备份
+create table test as select * from dept;
+
+---test表中没有数据，想添加dept表中的数据：
+insert into test 
+select * from dept;

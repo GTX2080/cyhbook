@@ -1,0 +1,13 @@
+delete ---删除条    
+delete /*from*/ emp where name=value
+delete test;----只是删除表中全部数据，并没有删除表
+truncate table test;---跟delete执行一样功能 ，但是效率高(删除表然后重新创建) 
+
+drop   ---删除表（丢掉）
+drop table student;
+
+
+
+
+
+

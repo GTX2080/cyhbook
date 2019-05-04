@@ -1,0 +1,38 @@
+---函数
+
+---单行函数，结果单行
+initcap(char) 首字母大写
+lower(char)   转换为小写
+upper(char)   转换为大写
+trim(char)    去除首空格
+ltrim(char)   去除左侧空格
+rtrim(char)   去除右侧空格
+replace(char,serach_str,replace_str)  字符串替换
+substr(char,positive,length) 区子字符串
+concat(char1,char2) 链接字符串
+
+abs(n) 取绝对值
+ceil(n) 向上取整
+sin/cos(n)正弦 余弦
+sign(n) 取符号         
+floor(n) 向下取整         
+power(n) m的n次幂
+mod(m,n) 取余数
+round(m,n) 四舍五入
+trunc(m,n) 截断
+sqrt(n) 平方根
+
+to_char(a,b)
+to_date('19900608','YYYY-MM-DD')
+to_number(a,b)
+nvl(E1,E2) 如果E1是空，执行E2，不是空执行E1
+nvl2(E1,E2,E3) 如果E1是空，那么执行 E3 ,不是空执行E2
+
+---多行函数： 
+sum()  求和 ,
+avg() 求平均 ,
+max() 最大值,
+min() 最小值 ,
+
+sum,avg 只适用于数值类型。
+max，min, count适用于所有类型数据,但是并不是所有类型都有意义，请准确使用。

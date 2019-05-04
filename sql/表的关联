@@ -1,0 +1,81 @@
+---表的关联
+
+---两个表关联 ：等值连接：----内连接  ：特点：只连接非空数据 
+select * from emp e,dept d where e.deptno=d.deptno;
+---这两张表出现了  ：没有员工的部门  和  没有 部门的员工  
+-----外连接：
+----1.显示所有学生 （显示出没有部门的员工） 
+select * from emp e,dept d where e.deptno=d.deptno(+);---左外连接 ：左边表中数据是全的  
+select * from dept d,emp e where d.deptno(+)=e.deptno;----右外连接 
+
+----2.显示所有部门：(没有员工的部门)
+select * from emp e,dept d where e.deptno(+)=d.deptno;---右外连接
+select * from dept d,emp e where d.deptno=e.deptno(+)   ---左外连接
+
+-----92语法没有全外连接
+select * from dept d,emp e where d.deptno(+) =e.deptno(+); 
+
+------自连接 ：并不是所有表都有这个功能，只针对特殊表：
+select * from emp;
+----查看员工姓名，员工职位，员工领导姓名 
+select * from emp e1,emp e2 where e1.mgr=e2.empno
+
+---三表关联：
+select e.ename,e.empno,d.dname,c.cname from emp e,department d,city c
+
+where e.deptno=d.deptno and d.loc=c.cid
+
+//99外连接 名称后加left right
+select * from  t_student s left join t_clazz c on s.clazzno=c.clazzno where 1=1
+
+
+----92 两表关联
+select * from emp ,dept;
+----99 
+select * from emp cross join dept;
+
+----92 过滤 出有效数据 ：
+select * from emp e,dept d  where e.deptno=d.deptno; 
+----99 :自动将两个表中所有的相同字段关联进行等值连接
+select * from emp e natural join dept d ;
+区别：
+（1）99中相同字段只显示一次，92中重复显示
+select e.ename,e.job,deptno from emp e natural join dept d ;
+（2）99将两个表中所有的相同字段关联进行等值连接
+(以下写的话运行不了)
+select * from a ,b  where a.id=b.id and a.name=b.name;
+select * from a natural join b;(自动将id,name进行关联，即使你不需要)
+现在就想指定99中id字段关联：
+select *  from a  inner join b using(id);
+select * from emp inner join dept using(deptno);
+
+
+那么假如两张表中字段名称不一样 ,如何进行连接呢？
+---92
+select * from city  e,department d  where e.cid=d.loc;
+---99:on后面是两个表关联的字段， where  表中过滤内容
+select * from city e inner join department d on e.cid=d.loc;
+select * from city e inner join department d on e.cid=d.loc   where deptno>20;
+
+---99中哪个用的最多：  a  inner join  b  on  
+select * from emp for update;
+select * from dept for update;
+
+-----92
+select * from emp e,dept d where e.deptno=d.deptno(+); 
+select * from emp e,dept d where e.deptno(+)=d.deptno;
+92没有全外连接
+
+-----99 
+select * from emp e left join dept d on e.deptno=d.deptno;
+select * from emp e right join dept d on e.deptno=d.deptno;
+select * from emp e full join dept d on e.deptno=d.deptno;
+
+----92 三表连接
+select * from emp e, department d,city c
+where e.deptno=d.deptno and d.loc=c.cid;
+
+----99
+select * from emp e
+inner join department d on e.deptno=d.deptno
+inner join city c on d.loc=c.cid

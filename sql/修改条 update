@@ -1,0 +1,17 @@
+update ---修改条目  更新
+update emp set name=value,name=value where name=value  ---修改条目
+---修改一条记录的一个字段
+update emp set ename='lisi' where empno=8002;
+---修改一条记录的两个字段
+update emp set ename='wangwu',job='CLERK' where empno=8001;
+
+
+Select Replace(字段名,'指定字符','替换字符') From 表名---替换指定字符
+
+select * from usertable for update; ---修改表数据
+
+
+
+
+
+

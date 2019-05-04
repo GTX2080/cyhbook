@@ -1,0 +1,42 @@
+---主键约束
+create table student(
+       sid number primary key,---添加主键
+       sname varchar2(20),
+       gender char(2),
+       age number,
+       classid number,
+       hiredate date,
+       email varchar2(25)
+)
+
+---我们想自己定义主键名字：
+  create table student(
+       sid number ,
+       sname varchar2(20),
+       gender char(2),
+       age number,
+       classid number,
+       hiredate date,
+       email varchar2(25),
+       constraints pk_student primary key (sid)---自定义名字
+)
+---建表完成后再添加主键
+alter table student add constraints pk_student primary key (sid);
+
+---非空约束
+not null
+---唯一约束
+unique
+---检查约束
+ default '男' check (gender='男' or gender='女')
+---外键约束
+constraints fk_student_classid foreign key (classid) references classes (cid)
+---外键约束---设置在删除外键表时本表操作
+on delete cascade---删除A内容同时也删除 B内容
+on delete set null---删除A内容 B对应置空
+建议你在开发中不要加外键约束 
+
+---约束格式
+constraints 自定义名称 键名 (表头)
+---外键加
+references 表名 (表头)

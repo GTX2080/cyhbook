@@ -1,0 +1,41 @@
+---视图
+视图可以查看
+create view myview
+as
+select * from student;  这个视图是参照student创建的
+
+
+向视图里增加一条记录：
+insert into myview values (5,'chen',23,'男',to_date('2018-3-4','YYYY-MM-DD'),'chi777@126.com',3);
+
+没有就创建，有就替换
+create or replace view myview
+as
+select sid,sname,classid from student; 
+
+这个视图中的数据，是从表中过滤出来的，数据全部都在表中。
+这个起到的就是隐藏的作用 。
+create or replace view myview
+as
+select sid,sname,classid from student where classid>2; 
+
+在视图中添加记录：
+insert into myview values(6,'lilili',1);
+
+现在，班级在一般的学生直接不能添加到视图中：
+create or replace view myview
+as
+select sid,sname,classid from student where classid>2
+with check option ; 
+
+insert into myview values(7,'lilili22',1);这条添加不进去 
+insert into myview values(7,'lilili22',3);这条可以添加
+
+
+现在，我想什么数据都填不进去：
+create or replace view myview
+as
+select sid,sname,classid from student where classid>2
+with read only ; 
+
+insert into myview values(8,'liggggi22',4);添加不进去

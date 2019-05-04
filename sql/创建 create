@@ -1,0 +1,32 @@
+create ---创建    
+create table name 
+
+create table student(
+       sid number,
+       sname varchar2(20),
+       gender char(2),
+       age number,
+       classid number,
+       hiredate date,
+       email varchar2(25)
+
+)
+数据类型：
+（1）number  :数值类型  
+     number(3)  :整数部分3位
+     number(3,2) ：整数部分3位，小数部分2位
+   
+字符类型
+（2）varchar  早版本的使用这个 现在高版本可能不识别了 
+
+（3）varchar2
+     varchar2(10)  长度限制是10   10字节   -5个汉字
+                    这个长度，最高是4000 最多容纳2000个汉字 
+                    blob 存储长文本的 
+                    
+（4）char(2)  代表长度最多到4字节  
+              char类型  一旦定义了长度，开辟空间就直接开辟那个长度的大小
+              相对来说浪费资源
+              应用场合：性别 男女 
+
+（5）date:   日期类型 。
