@@ -1,0 +1,36 @@
+##美化
+如果没有tweak tool，运行下面的指令
+sudo apt install gnome-tweak-tool
+如果没有user themes插件，运行下面的指令
+sudo apt install gnome-shell-extensions
+
+https://www.gnome-look.org/ 主题网站
+
+隐藏文件 按ctrl+h 可以显示
+①主题和Shell样式放在：/usr/share/themes 或 /home/用户名/.themes
+②图标放在：/usr/share/icons 或 /home/用户名/.icons
+③字体放在：/usr/share/fonts 或 /home/用户名/.fonts
+
+
+##更换登陆界面图片
+在 Ubuntu 上更换桌面壁纸和用户的资料图像不难。我们可以点击鼠标就搞定了。
+但更换解屏/锁屏的背景则需要修改文件 ubuntu.css，它位于 /usr/share/gnome-shell/theme
+1修改ubuntu.css(修改前最好备份下)
+sudo cp /usr/share/gnome-shell/theme/ubuntu.css   /usr/share/gnome-shell/theme/ubuntu.css.bak
+sudo gedit /usr/share/gnome-shell/theme/ubuntu.css
+
+在文件中找到关键字 lockDialogGroup，如下行：
+
+#lockDialogGroup {
+   background: #2c001e url(resource:///org/gnome/shell/theme/noise-texture.png);
+   background-repeat: repeat; 
+}
+修改为
+#lockDialogGroup {
+   background: #2c001e url(file:////home/pico/图片/WOW单收图/xxxx.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: cover; 
+}
+修改完成后，保存和关闭此文件。然后系统重启生效。
+你也可以修改 /usr/share/gnome-shell/theme 目录下的文件 gdm3.css ，具体修改内容和修改结果和上面一样。同时记得修改前备份要修改的文件。
