@@ -1,0 +1,31 @@
+假设当前是第PageNo页，每页有PageSize条记录，现在分别用Mysql、Oracle分页查询student表
+
+1、Oracel的分页查询：
+
+SELECT  * FROM
+    (
+        SELECT
+            ROWNUM   rn ,*
+        FROM
+            student
+        WHERE
+            Rownum <= pageNo * pageSize
+    )
+WHERE
+
+     rn > (pageNo - 1) * pageSize
+
+解析：ROWNUM（伪行列）从1开始，主要是通过伪行列来查询分页数据，比如pageNo = 1，pageSize = 10，先从student表取出行号小于等于10的记录，然后再从这些记录取出rn大于0的记录，从而达到分页目的。ROWNUM是一个伪列，它是oracle为查询结果所编的一个号，第一行的 ROWNUM为1，第二行为2，以此类推。
+
+2、Mysql的分页查询：
+
+ SELECT  *  FROM student  LIMIT (PageNo - 1) * PageSize,PageSize;
+
+解析：mysql自带的limit函数，比如 limit 0,5==》代表第一页显示5条数据，limit n,m==》n代表分页的第几页的下标（从0开始），m代表一页显示多少数据。
+
+
+--------------------- 
+作者：Java少年 
+来源：CSDN 
+原文：https://blog.csdn.net/qq_15901351/article/details/80502255 
+版权声明：本文为博主原创文章，转载请附上博文链接！
