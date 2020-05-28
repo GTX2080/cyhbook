@@ -15,3 +15,48 @@ revoke connect from chen
 
 ----删除用户：
 drop user chen;
+
+
+添加新的用户
+1、本地环境
+
+CentOS Linux release 7.5.1804 (Core)
+mysql  Ver 14.14 Distrib 5.7.22, for Linux (x86_64) using  EditLine wrapper
+2、以root用户登录Mysql
+
+mysql -uroot -proot
+3、切换到mysql数据库
+
+use mysql
+4、添加用户
+
+//只允许指定ip连接
+create user '新用户名'@'localhost' identified by '密码';
+//允许所有ip连接（用通配符%表示）
+create user '新用户名'@'%' identified by '密码';
+5、为新用户授权
+
+//基本格式如下
+grant all privileges on 数据库名.表名 to '新用户名'@'指定ip' identified by '新用户密码' ;
+//示例
+//允许访问所有数据库下的所有表
+grant all privileges on *.* to '新用户名'@'指定ip' identified by '新用户密码' ;
+//指定数据库下的指定表
+grant all privileges on test.test to '新用户名'@'指定ip' identified by '新用户密码' ;
+6、设置用户操作权限
+
+//设置用户拥有所有权限也就是管理员
+grant all privileges on *.* to '新用户名'@'指定ip' identified by '新用户密码' WITH GRANT OPTION;
+//拥有查询权限
+grant select on *.* to '新用户名'@'指定ip' identified by '新用户密码' WITH GRANT OPTION;
+//其它操作权限说明,select查询 insert插入 delete删除 update修改
+//设置用户拥有查询插入的权限
+grant select,insert on *.* to '新用户名'@'指定ip' identified by '新用户密码' WITH GRANT OPTION;
+//取消用户查询的查询权限
+REVOKE select ON what FROM '新用户名';
+7、删除用户
+
+DROP USER username@localhost;
+8、修改后刷新权限
+
+FLUSH PRIVILEGES;
