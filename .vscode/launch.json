@@ -1,23 +1,6 @@
 {
     "configurations": [
         {
-            "name": "Python: 当前文件",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "NewDemo.java",
-            "args": ""
-        },
-        {
             "type": "java",
             "name": "NewDemo",
             "request": "launch",
