@@ -1,3 +1,6 @@
 记录
 https://visualgo.net/zh  数据结构展示网站
 http://www.bejson.com/convert/ox2str/ 十六进制转文本
+https://blog.csdn.net/u013870094/article/details/79518028  log4j
+
+网易stmp //发送邮件 YPTZUTEJJAXTYFWY chen6165870
