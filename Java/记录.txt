@@ -1,8 +1,0 @@
-
-
-mybatis增删改返回值为影响几条返回值就是几；
-
-onclick事件触发时报参数is not defined 解决给参数加上单引号
-
-SendMessage smessage= new SendMessage("192.168.200.255", 5600);//这个地方host如果是10.85.2.255是10.85.2网段的所有机器都能收到，10.85.2.239只是239这台机器收到
-
