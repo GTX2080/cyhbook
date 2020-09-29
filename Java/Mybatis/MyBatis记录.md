@@ -4,3 +4,6 @@
 <if test=" appState == 1 "></if>
 以下错误
 <if test=" appState == ’1‘ "></if>
+
+
+mybatis增删改返回值为影响几条返回值就是几；

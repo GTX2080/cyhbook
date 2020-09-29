@@ -1,1 +1,2 @@
 html元素自定义属性  data-自定义名称
+onclick事件触发时报参数is not defined 解决给参数加上单引号
