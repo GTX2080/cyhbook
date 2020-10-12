@@ -1,13 +1,13 @@
-----------获取批处理所在路径----------
+### ----------获取批处理所在路径----------
 %~dp0 “d”为Drive的缩写，即为驱动器，磁盘、“p”为Path缩写，即为路径，目录（后面会带斜杠） 例如d://drive/
 
 
-----------获取注册表----------
+### ----------获取注册表----------
 
 for /f "tokens=1,2,* " %%i in ('REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v limitblankpassworduse ^| find /i "limitblankpassworduse"') do set "regvalue=%%k"
 echo 注册表值为%regvalue%
 
-----------添加注册表----------
+### ----------添加注册表----------
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\New Windows\Allow" /v "ccqepath" /t REG_RSZ /d %~dp0 /f
 reg add KeyName [/v ValueName | /ve] [/t Type] [/s Separator] [/d Data] [/f]
 
@@ -49,11 +49,11 @@ reg add HKLM\SOFTWARE\03D0C547-EBAD-43d9-8B57-DE16E7A93B52 /v AutoStart /t REG_D
 
 
 
-----------删除注册表----------
+### ----------删除注册表----------
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG
 
 
-----------设置环境变量----------
+### ----------设置环境变量----------
 setx /m "JAVA_HOME" "jdk1.8"    /m为设置系统变量不加则设置用户变量
 
 ::添加环境变量JAVA_HOME
