@@ -69,3 +69,22 @@ MyBatis mapper.xml中SQL处理小于号与大于号
 符号转义
 <	<=	>	>=	&	'	"
 &lt;	&lt;=	&gt;	&gt;=	&amp;	&apos;	&quot;
+
+
+按月查看
+
+每年
+select year(ordertime) 年,sum(Total) 销售合计
+from 订单表 group by year(ordertime)
+
+每月
+select year(ordertime) 年,month(ordertime) 月,sum(Total) 销售合计 
+from 订单表 group by year(ordertime), month(ordertime)
+
+每日
+select year(ordertime) 年,month(ordertime) 月,day(ordertime) 日,sum(Total) 销售合计
+from 订单表 group by year(ordertime), month(ordertime), day(ordertime)
+
+
+blob字段转换为字符串
+convert(displacement using utf8)
