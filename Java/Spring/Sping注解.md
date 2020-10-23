@@ -13,10 +13,11 @@
 泛指各种组件，就是说当我们的类不属于各种归类的时候（不属于@Controller、@Services等的时候），我们就可以使用@Component来标注这个类。
 
 @ConfigurationProperties 
-https://blog.csdn.net/yusimiao/article/details/97622666
-https://www.cnblogs.com/lihaoyang/p/10223339.html
+
 在在application.properties 里配置
 myapp.code.sms.length = 10
+可以在添加了@ConfigurationProperties(prefix = "myapp")myapp的类里追加名为code的类，可在追加sms的类，里面有名为length的属性，
+可以在添加配置注解的类里操作其所有子属性,每个属性都需要有get/set方法
 
-可以在添加了@ConfigurationProperties(prefix = "myapp")的类里追加名为code的类，可在追加sms的类，里面有名为length的属性，
-可以在添加配置注解的类里操作其所有子属性
+https://blog.csdn.net/yusimiao/article/details/97622666
+https://www.cnblogs.com/lihaoyang/p/10223339.html

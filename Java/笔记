@@ -1,0 +1,5 @@
+类在加载方法的时候编辑器会作一定的转译
+Banana a = new Banana();
+a.peel(1);
+在其内部转变为
+Banana.peel(a,1);
