@@ -1,0 +1,19 @@
+右键点击parallels 进入偏好设置
+设置share ipv4地址
+10.211.55.1起始
+10.211.55.255结束
+255.255.255.0子网
+启动ipv4 dhcp
+
+进入网络系统便好设置 配置parallels的ip为手动
+填入ip 10.211.55.2和子网 使用1会和上边冲突
+
+进入linux配置
+bootproto=static
+ipaddr=10.211.55.11 //linux的ip
+gateway=255.255.255.0 //网络偏好当中配置的子网掩码
+netmask=10.211.55.1 //parallels偏好当中建立的网络地址
+
+如果提示connect network is unreachable 注意将配置当中的onboot更改为yes
+
+应该是parallels自己建立了一个网段，将虚拟机和mac都连接到此网段当中，实现网络共享。

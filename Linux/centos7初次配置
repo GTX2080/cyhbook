@@ -1,0 +1,52 @@
+查看网络连接
+# yum install net-tools
+# ifconfig –a 
+连接网络
+$ cd /etc/sysconfig/network-scripts
+$ ls -a
+$ vi ifcfg-eth0 #每台电脑的名字都不一样，但都是ifcfg-ens/eth+数字
+—— 将 ONBOOT=no ，改成 ONBOOT=yes,保存后退出。
+
+//重启网络
+$ service network restart
+—— OK，成功了
+
+yum 安装工具包
+_安装gcc
+
+# yum -y install gcc
+# yum -y install gcc-c++ 
+# yum install make
+ 
+-- 或者
+# yum install gcc gcc-c++ kernel-devel
+_安装Perl编程环境
+
+//一个命令基本上就搞定了，如果环境能够联网的话。
+# yum install perl*
+查看安装成功的Perl版本
+
+# perl -v
+_YUM 源优先级插件：Yum Priorities
+
+_安装 EPEL
+
+yum install epel-release
+_安装dkms
+
+#yum --enablerepo=epel install dkms
+_安装开发环境
+
+# yum groupinstall "Development Tools"
+_安装内核kernel-devel
+
+# yum install kernel-devel
+_安装gpm鼠标服务
+
+# yum install gpm
+CentOS 安装Parallels Tools
+# cd /media/
+# mkdir cdrom
+# mount -o exec /dev/cdrom /media/cdrom
+# cd cdrom/
+# ./install
