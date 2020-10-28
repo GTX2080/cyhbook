@@ -253,7 +253,7 @@ step2：重设密码：
  
     此时，虽然防火墙我时关着的，但root用户只能用于本机访问，不能用于远程访问，否则会报以下错误。因此，接下来要做的是授予root用户远程访问权限。
 
-### 3.赋予用户远程访问权限
+# 六.赋予用户远程访问权限
 
 查看当前授予过的权限：
 
@@ -328,7 +328,7 @@ grant delete on testdb.* to common_user@'%'
 或者，用一条 MySQL 命令来替代： 
 grant select, insert, update, delete on testdb.* to common_user@'%'
 
-# 配置my.cnf
+# 七、配置my.cnf-可选
 
 打开配置文件my.cnf
 
@@ -348,7 +348,7 @@ grant select, insert, update, delete on testdb.* to common_user@'%'
 
     [root@localhost src]# service mysqld restart
 
-# 连接不了的解决问题
+# 八、连接不了的解决问题
 
 ### 1、查看该用户是否有远程登录的权限
 ```sql
