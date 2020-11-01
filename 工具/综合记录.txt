@@ -7,3 +7,5 @@ https://blog.csdn.net/u013870094/article/details/79518028  log4j
 
 外部网站
 https://www.autotrader.ca/ 汽车
+ttps://www.ipaddress.com/ 网站ip查询
+https://zhuanlan.zhihu.com/p/145437836  mac终端配置
