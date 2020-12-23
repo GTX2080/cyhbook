@@ -1,0 +1,27 @@
+springboot拦截器自动注入为null解决办法和具体原因分析
+
+解决方式
+方式一：使用WebApplicationContext 上下文对象来手动注入
+方式二：通过@bean注解注入拦截器到spring当中,同时给拦截器加上@compent注解
+
+@Configuration
+public class MyWebMvcConfigurer implements WebMvcConfigurer {
+  @Bean
+  public SessionInterceptor getSessionInterceptor(){
+    return new SessionInterceptor();
+  }
+
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(getSessionInterceptor()).excludePathPatterns("/static/**").addPathPatterns("/**");
+  }
+}
+
+问题原因（划重点）
+在网上找了很多资料，看到不少文章说注入为null的原因是：
+
+造成null的原因是因为拦截器加载是在springcontext创建之前完成的，所以在拦截器中注入实体自然就为null。
+
+当看到这个答案的时候，我是有疑惑的，因为在拦截器当中是可以注入bean的。带着疑惑，找了很多资料：比如springboot的加载顺序，拦截器等等，也问了很多人，最终得到了一个我个人比较认可的答案：
+
+注入为null的时候，是通过new的方式创建的拦截器，通过new出来的实例是没有交给spring进行管理的，没有被spring管理的实例，spring是无法自动注入bean的，所以为null
